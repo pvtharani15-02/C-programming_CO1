@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+    int house_no = 101;
+    int previous = 1200;
+    int current = 1530;
+    int units;
+
+    units = current - previous;
+
+    printf("House Number: %d\n", house_no);
+    printf("Previous Reading: %d\n", previous);
+    printf("Current Reading: %d\n", current);
+    printf("Units Consumed: %d\n", units);
+
+    return 0;
+}
