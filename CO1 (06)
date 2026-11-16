@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    int house_no;
+    int previous, current;
+    int units;
+    long bill;
+
+    printf("Enter House Number: ");
+
+    if (scanf("%d", &house_no) != 1)
+    {
+        printf("Invalid Input");
+        return 1;
+    }
+
+    printf("Enter Previous Reading: ");
+    if (scanf("%d", &previous) != 1)
+        return 1;
+
+    printf("Enter Current Reading: ");
+    if (scanf("%d", &current) != 1)
+        return 1;
+
+    if (current < previous)
+    {
+        printf("Invalid Reading");
+        return 1;
+    }
+
+    units = current - previous;
+    bill = 5000 + (units > 100 ? (units - 100) * 225 : 0);
+
+    printf("House Number: %d\n", house_no);
+    printf("Units: %d\n", units);
+    printf("Bill: Rs %ld.%02ld\n",
+           bill / 100, bill % 100);
+
+    return 0;
+}
