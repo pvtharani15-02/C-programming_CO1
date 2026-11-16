@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+    int a = 5, b = 2;
+    float x = 5.0f;
+
+    printf("Integer Division = %d\n", a / b);
+
+    printf("Float Division = %.2f\n", x / b);
+
+    printf("Type Conversion = %.2f\n",
+           (float)a / b);
+
+    printf("Explicit Casting = %d\n", (int)3.75);
+
+    printf("Wrong Calculation = %.2f\n",
+           (float)(a / b));
+
+    return 0;
+}
