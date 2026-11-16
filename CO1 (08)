@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#define RATE 225
+
+int main()
+{
+    int units = 150;
+    int bill = units * RATE;
+
+    printf("Bill = %d\n", bill);
+
+    return 0;
+}
