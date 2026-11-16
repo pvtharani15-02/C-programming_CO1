@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main()
+{
+    int rate, fixed;
+    int watt_hours, hour;
+    long long total = 0;
+
+    FILE *fp = fopen("tariff.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("Tariff file not found\n");
+        return 1;
+    }
+
+    fscanf(fp, "%d%d", &rate, &fixed);
+    fclose(fp);
+
+    printf("Enter Watt-hours: ");
+    scanf("%d", &watt_hours);
+
+    printf("Enter Hour (0-23): ");
+    scanf("%d", &hour);
+
+    if (watt_hours < 0 || hour < 0 || hour > 23)
+    {
+        printf("Invalid Input\n");
+        return 1;
+    }
+
+    total = (long long)watt_hours * rate;
+
+    if (hour >= 18 && hour < 22)
+        total = (total * 120 + 50000) / 100000;
+    else
+        total = (total + 500) / 1000;
+
+    total += fixed;
+
+    printf("Total Bill = Rs %lld.%02lld\n",
+           total / 100, total % 100);
+
+    return 0;
+}
